@@ -421,37 +421,12 @@
   }
 
   /* ── Standards strip ── */
-  .standards-strip {
+  .std-pill {
     background: var(--indigo-light);
-    border: 1px solid var(--indigo-mid);
-    border-radius: var(--radius);
-    padding: 1.5rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin: 2rem 0 0;
+    color: var(--indigo);
+    border-color: var(--indigo-mid);
+    font-size: 0.78rem;
   }
-
-  .std-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-  }
-
-  .std-badge {
-    font-size: 0.72rem;
-    font-weight: 700;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    padding: 3px 9px;
-    border-radius: 6px;
-    background: var(--indigo);
-    color: white;
-    white-space: nowrap;
-  }
-
-  .std-label { color: var(--text-mid); font-size: 0.83rem; }
 
   /* ── Bento grid ── */
   .bento {
@@ -633,9 +608,11 @@
   .persona-tagline {
     text-align: center;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--text);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    color: var(--indigo);
+    margin-top: 2.5rem;
+    letter-spacing: -0.02em;
   }
 
   /* ── Credibility strip ── */
@@ -687,6 +664,8 @@
   @media (max-width: 820px) {
     .feature-row { grid-template-columns: 1fr; gap: 2rem; }
     .feature-row.reverse { direction: ltr; }
+    .feature-row .feature-text { order: -1; }
+    .doc-grid { grid-template-columns: 1fr !important; }
     .steps-grid { grid-template-columns: 1fr 1fr; }
     .bento { grid-template-columns: 1fr; }
     .bento-card.wide { grid-column: span 1; }
@@ -745,6 +724,13 @@
       <div class="type-pill"><span class="type-pill-icon">🧸</span> Soft / Sewn</div>
       <div class="type-pill"><span class="type-pill-icon">🪵</span> Wooden</div>
     </div>
+    <div class="type-pills" style="margin-top:-1.25rem;">
+      <div class="type-pill std-pill">EN71-1</div>
+      <div class="type-pill std-pill">EN71-2</div>
+      <div class="type-pill std-pill">EN71-3</div>
+      <div class="type-pill std-pill">TSR 2011</div>
+      <div class="type-pill std-pill">UKCA</div>
+    </div>
 
     <div class="email-form-wrap">
       <form class="email-form" action="https://formsubmit.co/ashleyjkell@gmail.com" method="POST" id="hero-form">
@@ -756,35 +742,15 @@
     <div class="form-success" id="hero-success">✓ You're on the list — we'll be in touch!</div>
 
     <img class="screenshot fade-up" src="demo_screenshots/s1_dashboard.png" alt="Dashboard showing compliant products across multiple toy types" loading="lazy" style="max-width:900px; margin:0 auto; display:block;">
-
-    <div class="standards-strip fade-up" style="max-width:900px; margin:2rem auto 0;">
-      <div class="std-item">
-        <div class="std-badge">EN71-1</div>
-        <span class="std-label">Physical &amp; Mechanical Safety</span>
-      </div>
-      <div class="std-item">
-        <div class="std-badge">EN71-2</div>
-        <span class="std-label">Flammability</span>
-      </div>
-      <div class="std-item">
-        <div class="std-badge">EN71-3</div>
-        <span class="std-label">Chemical Migration</span>
-      </div>
-      <div class="std-item">
-        <div class="std-badge">TSR 2011</div>
-        <span class="std-label">Toys (Safety) Regulations 2011</span>
-      </div>
-      <div class="std-item">
-        <div class="std-badge">UKCA</div>
-        <span class="std-label">UK Conformity Assessed</span>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- ── Made for ── -->
 <section style="background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:3.5rem 0;">
   <div class="container">
+    <div style="text-align:center; margin-bottom:2.5rem;" class="fade-up">
+      <h2 class="section-title" style="margin-bottom:0;">Sound familiar?</h2>
+    </div>
     <div class="persona-grid fade-up">
       <div class="persona-item">
         <span class="persona-icon">🛍️</span>
@@ -965,7 +931,7 @@
       </div>
     </div>
 
-    <div class="fade-up" style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; max-width:960px; margin:3rem auto 0;">
+    <div class="doc-grid fade-up" style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; max-width:960px; margin:3rem auto 0;">
       <div style="display:flex; flex-direction:column; gap:0.5rem;">
         <div style="font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-soft); text-align:center;">Declaration of Conformity</div>
         <img class="screenshot" src="demo_screenshots/doc_declaration.png" alt="Example Declaration of Conformity document" loading="lazy" style="width:100%; border-radius:var(--radius); box-shadow:var(--shadow-lg);">
