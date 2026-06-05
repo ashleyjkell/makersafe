@@ -662,11 +662,13 @@
   .fade-up.visible { opacity: 1; transform: none; }
 
   @media (max-width: 820px) {
+    section { padding: 3rem 0; }
     .feature-row { grid-template-columns: 1fr; gap: 2rem; }
     .feature-row.reverse { direction: ltr; }
     .feature-row .feature-text { order: -1; }
     .doc-grid { grid-template-columns: 1fr !important; }
-    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .steps-grid { grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+    .step-card { padding: 1rem 0.75rem; }
     .bento { grid-template-columns: 1fr; }
     .bento-card.wide { grid-column: span 1; }
     nav .nav-links { display: none; }
@@ -676,7 +678,9 @@
   }
 
   @media (max-width: 500px) {
-    .steps-grid { grid-template-columns: 1fr; }
+    section { padding: 2.5rem 0; }
+    .steps-grid { grid-template-columns: 1fr; gap: 0.5rem; margin-top: 1.5rem; }
+    .step-card { padding: 0.75rem; }
   }
 </style>
 </head>
@@ -741,7 +745,10 @@
     <p class="email-note">No spam. Just one email when MakerSafe is ready to use.</p>
     <div class="form-success" id="hero-success">✓ You're on the list — we'll be in touch!</div>
 
-    <img class="screenshot fade-up" src="demo_screenshots/s1_dashboard.png" alt="Dashboard showing compliant products across multiple toy types" loading="lazy" style="max-width:900px; margin:0 auto; display:block;">
+    <picture class="fade-up" style="max-width:900px; margin:0 auto; display:block;">
+      <source media="(max-width: 820px)" srcset="demo_screenshots/s1_dashboard_mobile.png">
+      <img class="screenshot" src="demo_screenshots/s1_dashboard.png" alt="Dashboard showing compliant products across multiple toy types" loading="lazy" style="max-width:900px; margin:0 auto; display:block;">
+    </picture>
   </div>
 </section>
 
@@ -801,7 +808,10 @@
       </div>
     </div>
 
-    <img class="screenshot fade-up" src="demo_screenshots/s2_new_product.png" alt="Add new product: choose your toy type from 3D printed, crochet, soft/sewn, or wooden" loading="lazy" style="max-width:700px; margin:3rem auto 0; display:block;">
+    <picture class="fade-up" style="max-width:700px; margin:3rem auto 0; display:block;">
+      <source media="(max-width: 820px)" srcset="demo_screenshots/s2_new_product_mobile.png">
+      <img class="screenshot" src="demo_screenshots/s2_new_product.png" alt="Add new product: choose your toy type from 3D printed, crochet, soft/sewn, or wooden" loading="lazy" style="max-width:700px; margin:3rem auto 0; display:block;">
+    </picture>
   </div>
 </section>
 
@@ -825,7 +835,10 @@
           <div class="check-item"><div class="check-icon">✓</div><span>Auto-saves after every change</span></div>
         </div>
       </div>
-      <img class="screenshot" src="demo_screenshots/s4_wizard_new.png" alt="Guided wizard showing a safety test step with equipment list and instructions" loading="lazy">
+      <picture>
+        <source media="(max-width: 820px)" srcset="demo_screenshots/s4_wizard_mobile.png">
+        <img class="screenshot" src="demo_screenshots/s4_wizard_new.png" alt="Guided wizard showing a safety test step with equipment list and instructions" loading="lazy">
+      </picture>
     </div>
 
   </div>
@@ -835,7 +848,10 @@
 <section style="background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
   <div class="container">
     <div class="feature-row fade-up" style="margin-bottom:0;">
-      <img class="screenshot" src="demo_screenshots/s5_risk_new.png" alt="Risk assessment step showing hazard type, severity, likelihood, and calculated risk score" loading="lazy">
+      <picture>
+        <source media="(max-width: 820px)" srcset="demo_screenshots/s5_risk_mobile.png">
+        <img class="screenshot" src="demo_screenshots/s5_risk_new.png" alt="Risk assessment step showing hazard type, severity, likelihood, and calculated risk score" loading="lazy">
+      </picture>
       <div class="feature-text">
         <div class="section-label">Risk assessment</div>
         <h2 class="feature-title">Initial and residual risk, both captured</h2>
@@ -871,7 +887,10 @@
           <div class="check-item"><div class="check-icon">✓</div><span>Covers EN71-1 (physical), EN71-2 (flammability), EN71-3 (chemical)</span></div>
         </div>
       </div>
-      <img class="screenshot" src="demo_screenshots/s5_testing_new.png" alt="EN71 safety test step showing equipment list and step-by-step test procedure" loading="lazy">
+      <picture>
+        <source media="(max-width: 820px)" srcset="demo_screenshots/s5_testing_mobile.png">
+        <img class="screenshot" src="demo_screenshots/s5_testing_new.png" alt="EN71 safety test step showing equipment list and step-by-step test procedure" loading="lazy">
+      </picture>
     </div>
   </div>
 </section>
@@ -880,7 +899,10 @@
 <section style="background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border);" id="library">
   <div class="container">
     <div class="feature-row fade-up" style="margin-bottom:0;">
-      <img class="screenshot" src="demo_screenshots/s7_library.png" alt="Material library showing filaments with EN71-3 certificates and batch codes" loading="lazy">
+      <picture>
+        <source media="(max-width: 820px)" srcset="demo_screenshots/s7_library_mobile.png">
+        <img class="screenshot" src="demo_screenshots/s7_library.png" alt="Material library showing filaments with EN71-3 certificates and batch codes" loading="lazy">
+      </picture>
       <div class="feature-text">
         <div class="section-label">Material library</div>
         <h2 class="feature-title">Store your certified materials once, reuse across every product</h2>
