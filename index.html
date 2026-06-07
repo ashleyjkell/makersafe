@@ -757,7 +757,10 @@
     </div>
 
     <div class="email-form-wrap">
-      <form class="email-form" id="hero-form">
+      <form class="email-form" id="hero-form" action="https://formsubmit.co/65f277d37f04e04a77f4430dfb113020" method="POST">
+        <input type="hidden" name="_subject" value="New MakerSafe waitlist signup">
+        <input type="hidden" name="_autoresponse" value="Thanks for signing up to MakerSafe! We'll send you one email the moment it's ready to use. No spam — just that one notification.">
+        <input type="hidden" name="_captcha" value="false">
         <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
         <button type="submit">Notify me →</button>
       </form>
@@ -1183,7 +1186,10 @@
     <p class="cta-sub">MakerSafe is launching soon. Leave your email and we'll send you one notification the moment it's ready, along with a summary of everything the tools do.</p>
 
     <div class="email-form-wrap" style="margin-bottom:0.75rem;">
-      <form class="email-form" id="cta-form">
+      <form class="email-form" id="cta-form" action="https://formsubmit.co/65f277d37f04e04a77f4430dfb113020" method="POST">
+        <input type="hidden" name="_subject" value="New MakerSafe waitlist signup">
+        <input type="hidden" name="_autoresponse" value="Thanks for signing up to MakerSafe! We'll send you one email the moment it's ready to use. No spam — just that one notification.">
+        <input type="hidden" name="_captcha" value="false">
         <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
         <button type="submit">Notify me →</button>
       </form>
@@ -1234,24 +1240,21 @@
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
   // Waitlist form submission
-  const WAITLIST_URL = '/api/waitlist';
-
   function handleForm(formId, successId, errorId, noteId) {
     const form = document.getElementById(formId);
     if (!form) return;
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = form.querySelector('input[type="email"]').value.trim();
       const btn = form.querySelector('button');
       btn.disabled = true;
       btn.textContent = 'Sending…';
       try {
-        const res = await fetch(WAITLIST_URL, {
+        const res = await fetch(form.action, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email }),
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' },
         });
-        if (res.ok || res.status === 409) {
+        if (res.ok) {
           form.style.display = 'none';
           if (noteId) { const n = document.getElementById(noteId); if (n) n.style.display = 'none'; }
           document.getElementById(successId).style.display = 'block';
