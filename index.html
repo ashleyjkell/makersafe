@@ -3,17 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MakerSafe — Get your UKCA paperwork right</title>
-<meta name="description" content="MakerSafe guides UK toy makers through EN71 safety testing, risk assessment, and technical documentation — step by step, in plain English. Generate your Declaration of Conformity, Technical File, and batch labels in seconds.">
-<meta property="og:title" content="MakerSafe — Get your UKCA paperwork right">
-<meta property="og:description" content="EN71 testing, risk assessments, Declarations of Conformity, Technical Files, and batch labels. Everything you need to legally sell toys in the UK. Free to get started.">
+<title>MakerSafe: UKCA compliance tools for UK toy makers</title>
+<meta name="description" content="MakerSafe gives UK toy makers the tools to get UKCA compliance right: a guided EN71 wizard, testing tracker, material library, and document generator. Declaration of Conformity, Technical File, and batch labels, all in one place.">
+<meta property="og:title" content="MakerSafe: UKCA compliance tools for UK toy makers">
+<meta property="og:description" content="Guided EN71 wizard, testing tracker, material library, and document generator. Everything small UK toy makers need to comply with TSR 2011.">
 <meta property="og:url" content="https://makersafe.co.uk">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MakerSafe — Get your UKCA paperwork right">
+<meta name="twitter:title" content="MakerSafe: UKCA compliance tools for UK toy makers">
 <meta name="twitter:description" content="Step-by-step UKCA compliance for 3D printed, wooden, crochet, and sewn toys. Free to get started.">
 <script>
-  // Apply theme before first paint to avoid flash
   (function(){
     const saved = localStorage.getItem('theme');
     const sys = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -38,6 +37,8 @@
     --green-light: #DCFCE7;
     --amber: #D97706;
     --amber-light: #FEF3C7;
+    --red: #DC2626;
+    --red-light: #FEE2E2;
     --text: #1C1C2E;
     --text-mid: #4B5563;
     --text-soft: #9CA3AF;
@@ -61,6 +62,8 @@
     --green-light: #052E16;
     --amber: #F59E0B;
     --amber-light: #431407;
+    --red: #EF4444;
+    --red-light: #450a0a;
     --text: #F1F5F9;
     --text-mid: #94A3B8;
     --text-soft: #64748B;
@@ -102,12 +105,7 @@
     text-decoration: none;
   }
 
-  .nav-icon {
-    width: 32px; height: 32px;
-    border-radius: 9px;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
+  .nav-icon { width: 32px; height: 32px; border-radius: 9px; overflow: hidden; flex-shrink: 0; }
   .nav-icon img { width: 32px; height: 32px; display: block; }
 
   .nav-name {
@@ -117,20 +115,8 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--text-mid);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
+  .nav-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; }
+  .nav-links a { font-size: 0.88rem; font-weight: 600; color: var(--text-mid); text-decoration: none; transition: color 0.15s; }
   .nav-links a:hover { color: var(--indigo); }
 
   .btn-nav {
@@ -151,7 +137,6 @@
 
   /* ── Shared layout ── */
   .container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
-
   section { padding: 5rem 0; }
 
   .section-label {
@@ -180,18 +165,10 @@
     color: var(--text);
   }
 
-  .section-sub {
-    font-size: 1rem;
-    color: var(--text-mid);
-    max-width: 500px;
-    line-height: 1.7;
-  }
+  .section-sub { font-size: 1rem; color: var(--text-mid); max-width: 500px; line-height: 1.7; }
 
   /* ── Hero ── */
-  .hero {
-    padding: 2rem 0 3rem;
-    text-align: center;
-  }
+  .hero { padding: 2rem 0 3rem; text-align: center; }
 
   .hero-badge {
     display: inline-flex;
@@ -215,7 +192,6 @@
     margin-bottom: 1.25rem;
     color: var(--text);
   }
-
   .hero-title span { color: var(--indigo); }
 
   .hero-sub {
@@ -227,10 +203,7 @@
   }
 
   /* ── Email capture ── */
-  .email-form-wrap {
-    max-width: 480px;
-    margin: 0 auto 0.75rem;
-  }
+  .email-form-wrap { max-width: 480px; margin: 0 auto 0.75rem; }
 
   .email-form {
     display: flex;
@@ -272,11 +245,7 @@
   }
   .email-form button:hover { opacity: 0.88; transform: translateY(-1px); }
 
-  .email-note {
-    font-size: 0.78rem;
-    color: var(--text-soft);
-    margin-bottom: 2.5rem;
-  }
+  .email-note { font-size: 0.78rem; color: var(--text-soft); margin-bottom: 2.5rem; }
 
   .form-success {
     display: none;
@@ -291,6 +260,19 @@
     text-align: center;
   }
 
+  .form-error {
+    display: none;
+    background: var(--red-light);
+    color: var(--red);
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.65rem 1.1rem;
+    border-radius: 10px;
+    max-width: 480px;
+    margin: 0.5rem auto 0;
+    text-align: center;
+  }
+
   /* Screenshots */
   .screenshot {
     width: 100%;
@@ -299,7 +281,50 @@
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow-lg);
+    cursor: zoom-in;
+    transition: transform 0.15s, box-shadow 0.15s;
   }
+  .screenshot:hover { transform: scale(1.012); box-shadow: 0 20px 60px rgba(0,0,0,0.14); }
+  html.dark .screenshot { opacity: 0.88; }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    cursor: zoom-out;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 92vw;
+    max-height: 92vh;
+    border-radius: 10px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    cursor: default;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.25); }
 
   /* ── Product type pills ── */
   .type-pills {
@@ -323,8 +348,43 @@
     color: var(--text-mid);
     border: 1px solid var(--border);
   }
-
   .type-pill-icon { font-size: 1rem; }
+
+  /* ── Why UKCA ── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .why-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .why-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+
+  .why-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .why-desc {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
 
   /* ── Steps ── */
   .steps-section { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -336,10 +396,7 @@
     margin-top: 3rem;
   }
 
-  .step-card {
-    text-align: center;
-    padding: 1.5rem 1rem;
-  }
+  .step-card { text-align: center; padding: 1.5rem 1rem; }
 
   .step-num {
     width: 44px; height: 44px;
@@ -355,29 +412,75 @@
     margin: 0 auto 1rem;
   }
 
-  .step-title {
-    font-size: 0.95rem;
-    font-weight: 700;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    margin-bottom: 0.4rem;
-    color: var(--text);
+  .step-title { font-size: 0.95rem; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; margin-bottom: 0.4rem; color: var(--text); }
+  .step-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; }
+
+  /* ── Toolkit cards ── */
+  .toolkit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 3rem;
   }
 
-  .step-desc {
-    font-size: 0.82rem;
-    color: var(--text-mid);
-    line-height: 1.6;
+  .tool-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    gap: 1.1rem;
+    align-items: flex-start;
+    transition: border-color 0.15s, box-shadow 0.15s;
   }
+  .tool-card:hover { border-color: var(--indigo-mid); box-shadow: var(--shadow); }
+
+  .tool-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--indigo-light);
+  }
+
+  .tool-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+  }
+
+  .tool-desc { font-size: 0.84rem; color: var(--text-mid); line-height: 1.6; }
+
+  .tool-step {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--indigo);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-bottom: 0.3rem;
+    opacity: 0.75;
+  }
+
+  .step-connector { display: none; }
 
   /* ── Feature rows ── */
   .feature-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 2fr 3fr;
+    gap: 3rem;
     align-items: center;
     margin-bottom: 5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
-
   .feature-row:last-child { margin-bottom: 0; }
   .feature-row.reverse { direction: rtl; }
   .feature-row.reverse > * { direction: ltr; }
@@ -392,47 +495,18 @@
     line-height: 1.3;
   }
 
-  .feature-desc {
-    font-size: 0.93rem;
-    color: var(--text-mid);
-    line-height: 1.75;
-    margin-bottom: 1.25rem;
-  }
+  .feature-desc { font-size: 0.93rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1.25rem; }
 
-  .feature-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
+  .feature-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 
-  .chip {
-    font-size: 0.78rem;
-    font-weight: 600;
-    padding: 4px 11px;
-    border-radius: 100px;
-    background: var(--indigo-light);
-    color: var(--indigo);
-  }
-
+  .chip { font-size: 0.78rem; font-weight: 600; padding: 4px 11px; border-radius: 100px; background: var(--indigo-light); color: var(--indigo); }
   .chip-green { background: var(--green-light); color: var(--green); }
   .chip-amber { background: var(--amber-light); color: var(--amber); }
 
   /* ── Checklist ── */
-  .checklist {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 1rem;
-  }
+  .checklist { display: flex; flex-direction: column; gap: 8px; margin-top: 1rem; }
 
-  .check-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 9px;
-    font-size: 0.88rem;
-    color: var(--text-mid);
-    line-height: 1.5;
-  }
+  .check-item { display: flex; align-items: flex-start; gap: 9px; font-size: 0.88rem; color: var(--text-mid); line-height: 1.5; }
 
   .check-icon {
     width: 18px; height: 18px;
@@ -449,65 +523,47 @@
   }
 
   /* ── Standards strip ── */
-  .std-pill {
-    background: var(--indigo-light);
-    color: var(--indigo);
-    border-color: var(--indigo-mid);
-    font-size: 0.78rem;
-  }
+  .std-pill { background: var(--indigo-light); color: var(--indigo); border-color: var(--indigo-mid); font-size: 0.78rem; }
 
   /* ── Bento grid ── */
-  .bento {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 3rem;
-  }
+  .bento { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem; }
 
-  .bento-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.5rem;
-  }
-
+  .bento-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
   .bento-card.wide { grid-column: span 2; }
 
-  .bento-icon {
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-  }
-
+  .bento-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.2rem; }
   .bento-icon.indigo { background: var(--indigo-light); }
   .bento-icon.green { background: var(--green-light); }
   .bento-icon.amber { background: var(--amber-light); }
 
-  .bento-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    margin-bottom: 0.4rem;
-    color: var(--text);
+  .bento-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
+  .bento-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; }
+
+  /* ── Security section ── */
+  .security-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
   }
 
-  .bento-desc {
-    font-size: 0.82rem;
-    color: var(--text-mid);
-    line-height: 1.6;
+  .security-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
   }
+
+  .security-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .security-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .security-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; }
 
   /* ── CTA / waitlist section ── */
-  .cta-section {
-    background: var(--white);
-    border-top: 1px solid var(--border);
-    text-align: center;
-    padding: 5rem 2rem;
-  }
+  .cta-section { background: var(--white); border-top: 1px solid var(--border); text-align: center; padding: 5rem 2rem; }
 
   .cta-card {
     background: var(--indigo-light);
@@ -518,40 +574,12 @@
     margin: 0 auto;
   }
 
-  .cta-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.75rem;
-    color: var(--text);
-  }
+  .cta-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.75rem; color: var(--text); }
+  .cta-sub { font-size: 0.95rem; color: var(--text-mid); margin-bottom: 1.75rem; line-height: 1.7; }
 
-  .cta-sub {
-    font-size: 0.95rem;
-    color: var(--text-mid);
-    margin-bottom: 1.75rem;
-    line-height: 1.7;
-  }
+  .cta-trust { display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.25rem; }
 
-  .cta-trust {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-top: 1.25rem;
-  }
-
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.8rem;
-    color: var(--text-mid);
-    font-weight: 600;
-  }
-
+  .trust-item { display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: var(--text-mid); font-weight: 600; }
   .trust-item svg { color: var(--green); }
 
   /* ── Footer ── */
@@ -566,127 +594,38 @@
     gap: 1rem;
   }
 
-  .footer-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
+  .footer-left { display: flex; align-items: center; gap: 12px; }
 
-  .footer-brand {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--text);
-  }
+  .footer-brand { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; color: var(--text); }
 
-  .footer-icon {
-    width: 22px; height: 22px;
-    border-radius: 6px;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
+  .footer-icon { width: 22px; height: 22px; border-radius: 6px; overflow: hidden; flex-shrink: 0; }
   .footer-icon img { width: 22px; height: 22px; display: block; }
 
-  .footer-links {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .footer-links a {
-    font-size: 0.8rem;
-    color: var(--text-soft);
-    text-decoration: none;
-  }
+  .footer-links { display: flex; gap: 1rem; }
+  .footer-links a { font-size: 0.8rem; color: var(--text-soft); text-decoration: none; }
   .footer-links a:hover { color: var(--indigo); }
 
   .footer-right { font-size: 0.8rem; color: var(--text-soft); }
 
   /* ── Identity / made for ── */
-  .persona-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
+  .persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
 
-  .persona-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 1.25rem 1.5rem;
-    background: var(--bg);
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-  }
+  .persona-item { display: flex; align-items: flex-start; gap: 14px; padding: 1.25rem 1.5rem; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border); }
+  .persona-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+  .persona-item p { font-size: 0.93rem; color: var(--text-mid); line-height: 1.6; }
 
-  .persona-icon {
-    font-size: 1.5rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .persona-item p {
-    font-size: 0.93rem;
-    color: var(--text-mid);
-    line-height: 1.6;
-  }
-
-  .persona-tagline {
-    text-align: center;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 800;
-    color: var(--indigo);
-    margin-top: 2.5rem;
-    letter-spacing: -0.02em;
-  }
+  .persona-tagline { text-align: center; font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--indigo); margin-top: 2.5rem; letter-spacing: -0.02em; }
 
   /* ── Credibility strip ── */
-  .cred-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
+  .cred-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 
-  .cred-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-  }
-
-  .cred-icon {
-    font-size: 1.4rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .cred-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-
-  .cred-desc {
-    font-size: 0.82rem;
-    color: var(--text-mid);
-    line-height: 1.6;
-  }
-
-  @media (max-width: 820px) {
-    .persona-grid { grid-template-columns: 1fr; }
-    .cred-strip { grid-template-columns: 1fr; gap: 1.25rem; }
-  }
+  .cred-item { display: flex; align-items: flex-start; gap: 14px; }
+  .cred-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+  .cred-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .cred-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; }
 
   /* ── Animations ── */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 0.55s ease-out, transform 0.55s ease-out;
-  }
+  .fade-up { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease-out, transform 0.55s ease-out; }
   .fade-up.visible { opacity: 1; transform: none; }
 
   /* ── Dark mode toggle ── */
@@ -710,9 +649,7 @@
   html.dark .theme-toggle .icon-sun { display: block; }
   html.dark .theme-toggle .icon-moon { display: none; }
 
-  /* Slightly dim light-mode screenshots in dark mode */
-  html.dark .screenshot { opacity: 0.88; }
-
+  /* ── Responsive ── */
   @media (max-width: 820px) {
     section { padding: 3rem 0; }
     .feature-row { grid-template-columns: 1fr; gap: 2rem; }
@@ -728,32 +665,51 @@
     .email-form { flex-direction: column; padding: 10px; }
     .email-form input[type="email"] { padding: 0.5rem 0.25rem; }
     .email-form button { width: 100%; }
+    .persona-grid { grid-template-columns: 1fr; }
+    .cred-strip { grid-template-columns: 1fr; gap: 1.25rem; }
+    .why-grid { grid-template-columns: 1fr; }
+    .toolkit-grid { grid-template-columns: 1fr; }
+    .step-connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2px 0;
+    }
+    .step-connector-line { width: 2px; height: 14px; background: var(--indigo-mid); border-radius: 1px; }
+    .step-connector-dot { color: var(--indigo); font-size: 1rem; line-height: 1; }
+    .security-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .hero-title { font-size: clamp(1.7rem, 7vw, 2.4rem); }
   }
 
   @media (max-width: 500px) {
     section { padding: 2.5rem 0; }
     .steps-grid { grid-template-columns: 1fr; gap: 0.5rem; margin-top: 1.5rem; }
     .step-card { padding: 0.75rem; }
+    .container { padding: 0 1.25rem; }
   }
 </style>
 </head>
 <body>
 
+<!-- ── Lightbox ── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 <!-- ── Navigation ── -->
 <nav>
   <a class="nav-brand" href="#">
-    <div class="nav-icon">
-      <img src="logo.png" alt="MakerSafe logo">
-    </div>
+    <div class="nav-icon"><img src="logo.png" alt="MakerSafe logo"></div>
     <span class="nav-name">MakerSafe</span>
   </a>
 
   <ul class="nav-links">
+    <li><a href="#why-ukca">Why UKCA?</a></li>
     <li><a href="#how-it-works">How it works</a></li>
-    <li><a href="#wizard">Wizard</a></li>
-    <li><a href="#testing">Testing</a></li>
-    <li><a href="#library">Library</a></li>
+    <li><a href="#toolkit">The tools</a></li>
     <li><a href="#documents">Documents</a></li>
+    <li><a href="#security">Your data</a></li>
   </ul>
 
   <div style="display:flex; align-items:center; gap:0.6rem;">
@@ -778,12 +734,12 @@
     <div class="hero-badge">Coming soon · Free to get started</div>
 
     <h1 class="hero-title">
-      Stop guessing.<br>
-      <span>Get your UKCA paperwork right.</span>
+      The UKCA compliance toolkit<br>
+      <span>built for small toy makers.</span>
     </h1>
 
     <p class="hero-sub">
-      MakerSafe guides you through EN71 safety testing, risk assessment, and technical documentation, step by step, in plain English. Once you're done, generate your Declaration of Conformity, Technical File, and batch labels in seconds.
+      MakerSafe gives you everything you need to comply with UK toy safety law: a guided EN71 testing wizard, a material library with batch tracking, a testing tracker, and professional document generation. All in one place, all in plain English.
     </p>
 
     <div class="type-pills">
@@ -801,14 +757,14 @@
     </div>
 
     <div class="email-form-wrap">
-      <form class="email-form" action="https://formsubmit.co/65f277d37f04e04a77f4430dfb113020" method="POST" id="hero-form">
+      <form class="email-form" id="hero-form">
         <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
         <button type="submit">Notify me →</button>
       </form>
     </div>
-    <p class="email-note">No spam. Just one email when MakerSafe is ready to use.</p>
-    <div class="form-success" id="hero-success">✓ You're on the list — we'll be in touch!</div>
-
+    <p class="email-note" id="hero-note">No spam. Just one email when MakerSafe is ready to use.</p>
+    <div class="form-success" id="hero-success">✓ You're on the list. Check your inbox for a confirmation email.</div>
+    <div class="form-error" id="hero-error">Something went wrong. Please try again or email us directly.</div>
   </div>
 </section>
 
@@ -821,18 +777,62 @@
     <div class="persona-grid fade-up">
       <div class="persona-item">
         <span class="persona-icon">🛍️</span>
-        <p>You sell toys on Etsy, at craft fairs, or through your own shop, and you want to do it properly.</p>
+        <p>You sell handmade toys on Etsy, at craft fairs, or through your own shop, and you want to do it properly, with the paperwork to prove it.</p>
       </div>
       <div class="persona-item">
         <span class="persona-icon">🔨</span>
-        <p>You make them yourself, at home, in a small studio or workshop, using a 3D printer, crochet hook, sewing machine, or woodworking tools.</p>
+        <p>You make them yourself: 3D printing, crocheting, sewing, or woodworking. You know your craft. EN71 safety standards feel like a different world.</p>
       </div>
       <div class="persona-item">
         <span class="persona-icon">📋</span>
-        <p>You know there's paperwork involved, but declarations of conformity and EN71 testing feel like a different world.</p>
+        <p>You've heard about UKCA compliance and declarations of conformity, but figuring out where to start, and what counts as evidence, feels overwhelming.</p>
       </div>
     </div>
     <p class="persona-tagline fade-up">MakerSafe is built for you.</p>
+  </div>
+</section>
+
+<!-- ── Why UKCA matters ── -->
+<section id="why-ukca" style="background:var(--bg);">
+  <div class="container">
+    <div style="text-align:center;" class="fade-up">
+      <div class="section-label">Why this matters</div>
+      <h2 class="section-title">UKCA compliance isn't optional</h2>
+      <p class="section-sub" style="margin:0 auto; max-width:580px;">
+        The Toys (Safety) Regulations 2011 apply to every toy sold in the UK, however it's made or sold. Here's what's at stake if you skip it.
+      </p>
+    </div>
+
+    <div class="why-grid fade-up">
+      <div class="why-card">
+        <div class="why-icon">⚖️</div>
+        <div class="why-title">It's a legal requirement</div>
+        <div class="why-desc">
+          Under the Toys (Safety) Regulations 2011, placing a non-compliant toy on the UK market is a criminal offence, regardless of whether you're a sole trader selling two items a month or a large business. There is no minimum scale threshold. Event organisers and market holders can also carry liability if they knowingly allow non-compliant goods to be sold at their events, so many are now asking sellers for documentation before letting them trade.
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛒</div>
+        <div class="why-title">Platforms and markets are enforcing it</div>
+        <div class="why-desc">
+          Etsy actively enforces toy safety compliance and can remove listings or suspend accounts without it. Local markets and craft fairs are increasingly requiring a Declaration of Conformity before allowing toy sellers to trade. Trading Standards have the power to issue recalls, confiscate stock, and impose fines. A DoC is the first thing they ask for.
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚫</div>
+        <div class="why-title">"It's a decoration" doesn't work</div>
+        <div class="why-desc">
+          Labelling something as a "display item", "decoration", "prop", or "not a toy" does not make it exempt. If it looks like a toy and a child would play with it, it is legally treated as a toy under TSR 2011. Trading Standards can and do prosecute regardless of how the item is described or labelled. The exemption test is how a child would use it, not what the seller calls it.
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <div class="why-title">It builds buyer trust</div>
+        <div class="why-desc">
+          Stockists, gift shops, and wholesale buyers increasingly require a DoC before placing orders. The UKCA mark and a proper Technical File show customers and inspectors that you take safety seriously, and give parents confidence in what they're buying for their children.
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -842,29 +842,31 @@
     <div style="text-align:center;" class="fade-up">
       <div class="section-label">How it works</div>
       <h2 class="section-title">From blank page to compliant product</h2>
-      <p class="section-sub" style="margin:0 auto;">Plain English explanations at every step. No compliance experience required.</p>
+      <p class="section-sub" style="margin:0 auto;">
+        Our wizard guides you through defining your product, identifying risks, completing EN71 testing, recording results and evidence, and generating your compliance documents. One step at a time.
+      </p>
     </div>
 
     <div class="steps-grid">
       <div class="step-card fade-up">
         <div class="step-num">1</div>
-        <div class="step-title">Register your product</div>
-        <div class="step-desc">Choose your toy type: 3D printed, crochet, soft/sewn, or wooden. MakerSafe tailors everything to match.</div>
+        <div class="step-title">Tell us about your product</div>
+        <div class="step-desc">Choose your toy type: 3D printed, crochet, soft/sewn, or wooden. MakerSafe tailors every step and every EN71 test to match your specific product.</div>
       </div>
       <div class="step-card fade-up" style="transition-delay:0.07s">
         <div class="step-num">2</div>
-        <div class="step-title">Work through the wizard</div>
-        <div class="step-desc">Spec, materials, manufacturing, risk assessment, EN71 testing. Everything covered, tailored to your toy type.</div>
+        <div class="step-title">Work through the compliance wizard</div>
+        <div class="step-desc">Materials, manufacturing, risk assessment, EN71 testing. All covered, in plain English, one question at a time. Switch to expert mode any time to see everything at once.</div>
       </div>
       <div class="step-card fade-up" style="transition-delay:0.14s">
         <div class="step-num">3</div>
-        <div class="step-title">Record results &amp; evidence</div>
-        <div class="step-desc">Log pass/fail for each EN71 test. Attach photos, lab reports, or certificates directly against the test they cover.</div>
+        <div class="step-title">Record results and upload evidence</div>
+        <div class="step-desc">Log pass or fail for each applicable EN71 test. Attach photos, lab reports, or certificates directly against the test they cover. MakerSafe keeps a complete audit trail.</div>
       </div>
       <div class="step-card fade-up" style="transition-delay:0.21s">
         <div class="step-num">4</div>
-        <div class="step-title">Export your documents</div>
-        <div class="step-desc">Declaration of Conformity, Technical File, batch labels, and swing tags. One click bundles everything into a compliance pack ZIP.</div>
+        <div class="step-title">Generate your compliance documents</div>
+        <div class="step-desc">Declaration of Conformity, Technical File, UKCA batch labels, and swing tags, all generated from the data you've already entered. One click bundles everything into a compliance pack ZIP.</div>
       </div>
     </div>
 
@@ -875,13 +877,75 @@
   </div>
 </section>
 
+<!-- ── Compliance toolkit ── -->
+<section id="toolkit" style="background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div style="text-align:center;" class="fade-up">
+      <div class="section-label">Your compliance toolkit</div>
+      <h2 class="section-title">Four tools. One workflow.</h2>
+      <p class="section-sub" style="margin:0 auto;">
+        MakerSafe isn't just documentation software. It's a set of tools that work together, each designed for a specific part of the compliance process.
+      </p>
+    </div>
+
+    <div class="toolkit-grid fade-up" style="margin-top:2.5rem;">
+      <div class="tool-card">
+        <div class="tool-icon">🧭</div>
+        <div>
+          <div class="tool-step">01</div>
+          <div class="tool-name">Compliance Wizard</div>
+          <div class="tool-desc">
+            A step-by-step guided wizard that walks you through every section of your Technical File: product specification, bill of materials, manufacturing process, risk assessment, and EN71 safety testing. Only shows the tests that apply to your product type and age grading. Switch between guided (one card at a time) and expert mode (everything at once) any time.
+          </div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">📊</div>
+        <div>
+          <div class="tool-step">02</div>
+          <div class="tool-name">Testing Tracker</div>
+          <div class="tool-desc">
+            Record pass, fail, or not-applicable for each EN71 test. Attach photos, lab reports, and certificates directly against the test they cover. MakerSafe provides step-by-step instructions and the equipment list for every test, so you know exactly what you need before you start.
+          </div>
+        </div>
+      </div>
+
+      <div class="step-connector" aria-hidden="true">
+        <div class="step-connector-line"></div>
+        <div class="step-connector-dot">↓</div>
+        <div class="step-connector-line"></div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🧶</div>
+        <div>
+          <div class="tool-step">03</div>
+          <div class="tool-name">Material Library</div>
+          <div class="tool-desc">
+            Build a library of every material you use: filaments, print profiles, yarns, soft materials, timber, and surface finishes. Attach EN71 compliance certificates and batch codes to each entry. Pull materials straight into product bills of materials without re-entering them. Batch codes link directly back to the products that use them.
+          </div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">📄</div>
+        <div>
+          <div class="tool-step">04</div>
+          <div class="tool-name">Document Generator</div>
+          <div class="tool-desc">
+            Generate professional, TSR 2011-compliant documents directly from the data you've entered in the wizard: Declaration of Conformity PDF, Technical File PDF, UKCA batch labels (one per production run), and swing tags. Download individually or bundle everything (including uploaded evidence) into a single compliance pack ZIP.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Wizard ── -->
 <section id="wizard">
   <div class="container">
-
     <div class="feature-row fade-up">
       <div class="feature-text">
-        <div class="section-label">Step-by-step guided wizard</div>
+        <div class="section-label">Compliance Wizard</div>
         <h2 class="feature-title">One question at a time, in plain English</h2>
         <p class="feature-desc">
           The guided wizard walks you through every section of your technical file one card at a time. No compliance experience needed. Switch to expert mode any time to see all fields at once.
@@ -900,14 +964,13 @@
         <img class="screenshot" src="demo_screenshots/s4_wizard_new.png" alt="Guided wizard showing a tension test step with measurements filled in and Pass result selected" loading="lazy">
       </picture>
     </div>
-
   </div>
 </section>
 
 <!-- ── Risk Assessment ── -->
 <section style="background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
   <div class="container">
-    <div class="feature-row fade-up" style="margin-bottom:0;">
+    <div class="feature-row fade-up" style="margin-bottom:0; grid-template-columns: 3fr 2fr;">
       <picture>
         <source media="(max-width: 820px)" srcset="demo_screenshots/s5_risk_mobile.png">
         <img class="screenshot" src="demo_screenshots/s5_risk_new.png" alt="Risk assessment step showing hazard type, severity, likelihood, and calculated risk score" loading="lazy">
@@ -934,17 +997,17 @@
   <div class="container">
     <div class="feature-row fade-up">
       <div class="feature-text">
-        <div class="section-label">EN71 safety testing</div>
-        <h2 class="feature-title">Every applicable test. Nothing more.</h2>
+        <div class="section-label">Testing Tracker</div>
+        <h2 class="feature-title">Every applicable EN71 test. Nothing more.</h2>
         <p class="feature-desc">
-          MakerSafe shows only the EN71 tests relevant to your product type and age grading. Each test card explains exactly what equipment you need, how to perform the test, and what counts as a pass.
+          MakerSafe shows only the EN71 tests relevant to your product type and age grading. Each test card explains exactly what equipment you need, how to perform the test, and what counts as a pass, so you can run the tests yourself with confidence.
         </p>
         <div class="checklist">
           <div class="check-item"><div class="check-icon">✓</div><span>Step-by-step instructions for every applicable test</span></div>
-          <div class="check-item"><div class="check-icon">✓</div><span>Equipment list before you start</span></div>
-          <div class="check-item"><div class="check-icon">✓</div><span>Pass / Fail / Not applicable per test</span></div>
+          <div class="check-item"><div class="check-icon">✓</div><span>Equipment list so you know what you need before you start</span></div>
+          <div class="check-item"><div class="check-icon">✓</div><span>Pass / Fail / Not applicable recorded per test</span></div>
           <div class="check-item"><div class="check-icon">✓</div><span>Evidence upload required for every result: photos, lab reports, certificates</span></div>
-          <div class="check-item"><div class="check-icon">✓</div><span>Covers EN71-1 (physical), EN71-2 (flammability), EN71-3 (chemical)</span></div>
+          <div class="check-item"><div class="check-icon">✓</div><span>Covers EN71-1 (physical &amp; mechanical), EN71-2 (flammability), EN71-3 (chemical migration)</span></div>
         </div>
       </div>
       <picture>
@@ -958,16 +1021,16 @@
 <!-- ── Library ── -->
 <section style="background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border);" id="library">
   <div class="container">
-    <div class="feature-row fade-up" style="margin-bottom:0;">
+    <div class="feature-row fade-up" style="margin-bottom:0; grid-template-columns: 3fr 2fr;">
       <picture>
         <source media="(max-width: 820px)" srcset="demo_screenshots/s7_library_mobile.png">
         <img class="screenshot" src="demo_screenshots/s7_library.png" alt="Material library showing filaments with EN71-3 certificates and batch codes" loading="lazy">
       </picture>
       <div class="feature-text">
-        <div class="section-label">Material library</div>
-        <h2 class="feature-title">Store your certified materials once, reuse across every product</h2>
+        <div class="section-label">Material Library</div>
+        <h2 class="feature-title">Store certified materials once, reuse across every product</h2>
         <p class="feature-desc">
-          Build a library of every material you use. Attach EN71 certificates and batch codes to each entry, then pull them straight into product BOMs. No re-entering the same filament or yarn twice.
+          Build a library of every material you use. Attach EN71 certificates and batch codes to each entry, then pull them straight into product bills of materials. Batch codes linked to a product are highlighted in amber. Click them to find the product instantly. No re-entering the same filament or yarn twice.
         </p>
         <div class="feature-chips">
           <div class="chip">Filaments &amp; print profiles</div>
@@ -985,9 +1048,9 @@
 <section id="documents">
   <div class="container">
     <div style="text-align:center; margin-bottom:3rem;" class="fade-up">
-      <div class="section-label">Document generation</div>
+      <div class="section-label">Document Generator</div>
       <h2 class="section-title">Professional documents, ready in seconds</h2>
-      <p class="section-sub" style="margin:0 auto;">Everything required under TSR 2011 Schedule 5, generated from the data you've already entered.</p>
+      <p class="section-sub" style="margin:0 auto;">Everything required under TSR 2011 Schedule 5, generated from the data you've already entered in the wizard.</p>
     </div>
 
     <div class="bento fade-up">
@@ -999,28 +1062,28 @@
       <div class="bento-card">
         <div class="bento-icon indigo">📋</div>
         <div class="bento-title">Technical File</div>
-        <div class="bento-desc">Full Schedule 5 bundle covering product spec, BOM, manufacturing, risk assessment, test records, and age grading. Everything Trading Standards may ask for.</div>
+        <div class="bento-desc">Full Schedule 5 bundle covering product spec, BOM, manufacturing, risk assessment, test records, and age grading. Everything Trading Standards may ask for, all in one document.</div>
       </div>
       <div class="bento-card">
         <div class="bento-icon green">🏷️</div>
         <div class="bento-title">Batch Labels &amp; Swing Tags</div>
-        <div class="bento-desc">UKCA-compliant labels and compact swing tags with UKCA mark, age warning, lot number, standards line, and manufacturer address. Print-ready PNGs, one per batch.</div>
+        <div class="bento-desc">UKCA-compliant labels and compact swing tags with UKCA mark, age warning symbol, lot number, standards line, and manufacturer address. Print-ready PNGs, one per production batch.</div>
       </div>
       <div class="bento-card">
         <div class="bento-icon amber">📦</div>
         <div class="bento-title">Compliance Pack ZIP</div>
-        <div class="bento-desc">One download containing your DoC PDF, Technical File PDF, all batch labels and swing tags, and all uploaded evidence files, organised by test category.</div>
+        <div class="bento-desc">One download containing your DoC PDF, Technical File PDF, all batch labels and swing tags, and all uploaded evidence files, organised by EN71 test category.</div>
       </div>
     </div>
 
     <div class="doc-grid fade-up" style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; max-width:960px; margin:3rem auto 0;">
       <div style="display:flex; flex-direction:column; gap:0.5rem;">
         <div style="font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-soft); text-align:center;">Declaration of Conformity</div>
-        <img class="screenshot" src="demo_screenshots/doc_declaration.png" alt="Example Declaration of Conformity document" loading="lazy" style="width:100%; border-radius:var(--radius); box-shadow:var(--shadow-lg);">
+        <img class="screenshot" src="demo_screenshots/doc_declaration.png" alt="Example Declaration of Conformity document" loading="lazy">
       </div>
       <div style="display:flex; flex-direction:column; gap:0.5rem;">
         <div style="font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-soft); text-align:center;">Technical File</div>
-        <img class="screenshot" src="demo_screenshots/doc_technical_file.png" alt="Example Technical File document" loading="lazy" style="width:100%; border-radius:var(--radius); box-shadow:var(--shadow-lg);">
+        <img class="screenshot" src="demo_screenshots/doc_technical_file.png" alt="Example Technical File document" loading="lazy">
       </div>
     </div>
   </div>
@@ -1034,14 +1097,14 @@
         <span class="cred-icon">⚖️</span>
         <div>
           <p class="cred-title">Built to the letter of UK law</p>
-          <p class="cred-desc">Every document output — Declaration of Conformity, Technical File, and batch labels — maps directly to the requirements of the Toys (Safety) Regulations 2011 (S.I. 2011/1881).</p>
+          <p class="cred-desc">Every document (Declaration of Conformity, Technical File, and batch labels) maps directly to the requirements of the Toys (Safety) Regulations 2011 (S.I. 2011/1881).</p>
         </div>
       </div>
       <div class="cred-item">
         <span class="cred-icon">🏛️</span>
         <div>
           <p class="cred-title">Developed with local authorities</p>
-          <p class="cred-desc">We're working with Trading Standards officers at several local authorities to make sure what MakerSafe produces is in line with what they actually expect to see from small manufacturers.</p>
+          <p class="cred-desc">We're working with Trading Standards officers to make sure what MakerSafe produces matches what they actually expect to see from small manufacturers.</p>
         </div>
       </div>
       <div class="cred-item">
@@ -1055,20 +1118,79 @@
   </div>
 </section>
 
+<!-- ── Data security ── -->
+<section id="security" style="background:var(--bg);">
+  <div class="container">
+    <div style="text-align:center;" class="fade-up">
+      <div class="section-label">Your data</div>
+      <h2 class="section-title">Safe, private, and yours</h2>
+      <p class="section-sub" style="margin:0 auto; max-width:560px;">
+        Your compliance data is sensitive business information. Here's how MakerSafe handles it.
+      </p>
+    </div>
+
+    <div class="security-grid fade-up">
+      <div class="security-item">
+        <div class="security-icon">🔒</div>
+        <div>
+          <div class="security-title">Your account, your data</div>
+          <div class="security-desc">Your products, test records, and documents are scoped entirely to your account. No other user can see or access your data. All API requests require authentication.</div>
+        </div>
+      </div>
+      <div class="security-item">
+        <div class="security-icon">🗄️</div>
+        <div>
+          <div class="security-title">Secure cloud storage</div>
+          <div class="security-desc">Data is stored in a private MongoDB database. Evidence files (photos, certificates) are stored in encrypted S3-compatible object storage. Connections are encrypted in transit.</div>
+        </div>
+      </div>
+      <div class="security-item">
+        <div class="security-icon">📤</div>
+        <div>
+          <div class="security-title">Always export what's yours</div>
+          <div class="security-desc">Your compliance documents are generated on demand and downloaded directly to your device. Export your full compliance pack ZIP at any time. You are never locked in.</div>
+        </div>
+      </div>
+      <div class="security-item">
+        <div class="security-icon">📋</div>
+        <div>
+          <div class="security-title">Compliance audit trail</div>
+          <div class="security-desc">Documents generated, evidence uploaded, and declarations saved are all logged to a compliance audit trail that you can review as an administrator.</div>
+        </div>
+      </div>
+      <div class="security-item">
+        <div class="security-icon">🙅</div>
+        <div>
+          <div class="security-title">No selling your data</div>
+          <div class="security-desc">Your data is never sold, shared with third parties, or used to train AI models. We collect only what's needed to run the service.</div>
+        </div>
+      </div>
+      <div class="security-item">
+        <div class="security-icon">📖</div>
+        <div>
+          <div class="security-title">Transparent policies</div>
+          <div class="security-desc">Read our full <a href="/privacy" style="color:var(--indigo); font-weight:600;">Privacy Policy</a> and <a href="/terms" style="color:var(--indigo); font-weight:600;">Terms of Service</a>. If you have questions about data handling, email us directly.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Waitlist CTA ── -->
 <section class="cta-section">
   <div class="cta-card fade-up">
     <h2 class="cta-title">Be the first to know</h2>
-    <p class="cta-sub">MakerSafe is launching soon. Leave your email and we'll let you know the moment it's ready. Free to get started.</p>
+    <p class="cta-sub">MakerSafe is launching soon. Leave your email and we'll send you one notification the moment it's ready, along with a summary of everything the tools do.</p>
 
     <div class="email-form-wrap" style="margin-bottom:0.75rem;">
-      <form class="email-form" action="https://formsubmit.co/65f277d37f04e04a77f4430dfb113020" method="POST" id="cta-form">
+      <form class="email-form" id="cta-form">
         <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
         <button type="submit">Notify me →</button>
       </form>
     </div>
-    <p class="email-note">No spam. Just one email when MakerSafe is ready.</p>
-    <div class="form-success" id="cta-success">✓ You're on the list — we'll be in touch!</div>
+    <p class="email-note" id="cta-note">No spam. Just one email when MakerSafe is ready.</p>
+    <div class="form-success" id="cta-success">✓ You're on the list. Check your inbox for a confirmation email.</div>
+    <div class="form-error" id="cta-error">Something went wrong. Please try again or email us directly.</div>
 
     <div class="cta-trust">
       <div class="trust-item">
@@ -1091,13 +1213,13 @@
 <footer>
   <div class="footer-left">
     <div class="footer-brand">
-      <div class="footer-icon">
-        <img src="logo.png" alt="MakerSafe logo">
-      </div>
+      <div class="footer-icon"><img src="logo.png" alt="MakerSafe logo"></div>
       MakerSafe
     </div>
     <span style="font-size:0.8rem; color:var(--text-soft);">© 2026</span>
     <div class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
       <a href="mailto:ashleyjkell@gmail.com">Contact</a>
     </div>
   </div>
@@ -1111,32 +1233,41 @@
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
-  // Form AJAX submission — show success message without page reload
-  function handleForm(formId, successId) {
+  // Waitlist form submission
+  const WAITLIST_URL = '/api/waitlist';
+
+  function handleForm(formId, successId, errorId, noteId) {
     const form = document.getElementById(formId);
     if (!form) return;
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const data = new FormData(form);
+      const email = form.querySelector('input[type="email"]').value.trim();
+      const btn = form.querySelector('button');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
       try {
-        const res = await fetch(form.action, {
+        const res = await fetch(WAITLIST_URL, {
           method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email }),
         });
-        if (res.ok) {
+        if (res.ok || res.status === 409) {
           form.style.display = 'none';
+          if (noteId) { const n = document.getElementById(noteId); if (n) n.style.display = 'none'; }
           document.getElementById(successId).style.display = 'block';
-          // Also hide the note below the form
-          const note = form.closest('.email-form-wrap')?.nextElementSibling;
-          if (note?.classList.contains('email-note')) note.style.display = 'none';
+        } else {
+          throw new Error('non-ok');
         }
-      } catch (_) {}
+      } catch (_) {
+        btn.disabled = false;
+        btn.textContent = 'Notify me →';
+        document.getElementById(errorId).style.display = 'block';
+      }
     });
   }
 
-  handleForm('hero-form', 'hero-success');
-  handleForm('cta-form', 'cta-success');
+  handleForm('hero-form', 'hero-success', 'hero-error', 'hero-note');
+  handleForm('cta-form', 'cta-success', 'cta-error', 'cta-note');
 
   // Dark mode toggle
   document.getElementById('theme-toggle').addEventListener('click', function() {
@@ -1144,6 +1275,29 @@
     root.classList.toggle('dark');
     localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
   });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.screenshot').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  }
+
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
 </script>
 
 </body>
