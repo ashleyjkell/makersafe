@@ -470,6 +470,117 @@
 
   .step-connector { display: none; }
 
+  /* ── Hero pace line ── */
+  .hero-pace {
+    font-size: 0.83rem;
+    color: var(--text-soft);
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+  }
+  .hero-pace::before { content: '✦'; color: var(--indigo); opacity: 0.6; font-size: 0.65rem; }
+
+  /* ── Before / After ── */
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .ba-col { border-radius: var(--radius); padding: 1.4rem 1.5rem; }
+  .ba-col.before { background: var(--border-soft); border: 1px solid var(--border); }
+  .ba-col.after { background: var(--green-light); border: 1px solid rgba(22,163,74,0.25); }
+  .ba-header {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+  }
+  .ba-col.before .ba-header { color: var(--text-soft); }
+  .ba-col.after .ba-header { color: var(--green); }
+  .ba-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.86rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+    margin-bottom: 0.55rem;
+  }
+  .ba-item:last-child { margin-bottom: 0; }
+  .ba-item-icon { flex-shrink: 0; font-weight: 700; margin-top: 1px; }
+  .ba-col.before .ba-item-icon { color: var(--text-soft); }
+  .ba-col.after .ba-item-icon { color: var(--green); }
+
+  /* ── Already selling callout ── */
+  .already-selling {
+    background: var(--amber-light);
+    border: 1px solid rgba(217,119,6,0.35);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 2rem;
+  }
+  .already-selling-icon { font-size: 1.2rem; flex-shrink: 0; }
+  .already-selling p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
+  .already-selling strong { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: var(--text); }
+
+  /* ── Testimonials ── */
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+  .testimonial-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .testimonial-stars { color: var(--amber); font-size: 0.85rem; letter-spacing: 2px; }
+  .testimonial-quote { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; font-style: italic; }
+  .testimonial-author { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--text); }
+  .testimonial-type { font-size: 0.75rem; color: var(--text-soft); margin-top: 1px; }
+
+  /* ── FAQ ── */
+  .faq-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.5rem; max-width: 780px; margin-left: auto; margin-right: auto; }
+  details.faq-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+  details.faq-item[open] { border-color: var(--indigo-mid); }
+  summary.faq-q {
+    list-style: none;
+    cursor: pointer;
+    padding: 1rem 1.25rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    user-select: none;
+  }
+  summary.faq-q::-webkit-details-marker { display: none; }
+  summary.faq-q::after { content: '+'; font-size: 1.3rem; font-weight: 300; color: var(--indigo); flex-shrink: 0; }
+  details[open] summary.faq-q::after { content: '−'; }
+  .faq-a { padding: 0 1.25rem 1.1rem; font-size: 0.87rem; color: var(--text-mid); line-height: 1.75; }
+
   /* ── Feature rows ── */
   .feature-row {
     display: grid;
@@ -679,6 +790,8 @@
     .step-connector-dot { color: var(--indigo); font-size: 1rem; line-height: 1; }
     .security-grid { grid-template-columns: 1fr; gap: 1.25rem; }
     .hero-title { font-size: clamp(1.7rem, 7vw, 2.4rem); }
+    .ba-grid { grid-template-columns: 1fr; }
+    .testimonial-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 500px) {
@@ -709,6 +822,7 @@
     <li><a href="#how-it-works">How it works</a></li>
     <li><a href="#toolkit">The tools</a></li>
     <li><a href="#documents">Documents</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#security">Your data</a></li>
   </ul>
 
@@ -742,6 +856,8 @@
       MakerSafe gives you everything you need to comply with UK toy safety law: a guided EN71 testing wizard, a material library with batch tracking, a testing tracker, and professional document generation. All in one place, all in plain English.
     </p>
 
+    <p class="hero-pace">No compliance experience needed — work through it at your own pace</p>
+
     <div class="type-pills">
       <div class="type-pill"><span class="type-pill-icon">🖨️</span> 3D Printed</div>
       <div class="type-pill"><span class="type-pill-icon">🧶</span> Crochet &amp; Knit</div>
@@ -760,12 +876,12 @@
       <form class="email-form" id="hero-form" action="https://formsubmit.co/65f277d37f04e04a77f4430dfb113020" method="POST">
         <input type="hidden" name="_subject" value="New MakerSafe waitlist signup">
         <input type="hidden" name="_autoresponse" value="Thanks for signing up to MakerSafe! We'll send you one email the moment it's ready to use. No spam — just that one notification.">
-        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="thankyou.html">
         <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
         <button type="submit">Notify me →</button>
       </form>
     </div>
-    <p class="email-note" id="hero-note">No spam. Just one email when MakerSafe is ready to use.</p>
+    <p class="email-note" id="hero-note">No spam. Just one email when MakerSafe is ready. Affordable for sole traders — pricing announced at launch.</p>
     <div class="form-success" id="hero-success">✓ You're on the list. Check your inbox for a confirmation email.</div>
     <div class="form-error" id="hero-error">Something went wrong. Please try again or email us directly.</div>
   </div>
@@ -792,6 +908,23 @@
       </div>
     </div>
     <p class="persona-tagline fade-up">MakerSafe is built for you.</p>
+
+    <div class="ba-grid fade-up" style="margin-top:2.5rem;">
+      <div class="ba-col before">
+        <div class="ba-header">Without MakerSafe</div>
+        <div class="ba-item"><span class="ba-item-icon">✗</span>Hours reading government guidance and closing browser tabs</div>
+        <div class="ba-item"><span class="ba-item-icon">✗</span>Not sure what evidence to keep or how to organise it</div>
+        <div class="ba-item"><span class="ba-item-icon">✗</span>Guessing at a Declaration of Conformity template</div>
+        <div class="ba-item"><span class="ba-item-icon">✗</span>Hoping you haven't missed anything important</div>
+      </div>
+      <div class="ba-col after">
+        <div class="ba-header">With MakerSafe</div>
+        <div class="ba-item"><span class="ba-item-icon">✓</span>Step-by-step wizard in plain English — no jargon</div>
+        <div class="ba-item"><span class="ba-item-icon">✓</span>Every test tells you exactly what to attach as evidence</div>
+        <div class="ba-item"><span class="ba-item-icon">✓</span>Professionally formatted DoC, generated from your data</div>
+        <div class="ba-item"><span class="ba-item-icon">✓</span>Checklist tracks every requirement so nothing slips through</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -835,6 +968,11 @@
           Stockists, gift shops, and wholesale buyers increasingly require a DoC before placing orders. The UKCA mark and a proper Technical File show customers and inspectors that you take safety seriously, and give parents confidence in what they're buying for their children.
         </div>
       </div>
+    </div>
+
+    <div class="already-selling fade-up">
+      <div class="already-selling-icon">💡</div>
+      <p><strong>Already selling without compliance?</strong> MakerSafe helps you get compliant from today. You can't backdate evidence, but you can start building a proper Technical File right now and protect yourself going forward. Many of our users started exactly where you are.</p>
     </div>
   </div>
 </section>
@@ -1121,6 +1259,79 @@
   </div>
 </section>
 
+<!-- ── Testimonials ── -->
+<section style="background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div style="text-align:center;" class="fade-up">
+      <div class="section-label">What makers are saying</div>
+      <h2 class="section-title">Real makers. Real compliance.</h2>
+      <p class="section-sub" style="margin:0 auto;">Quotes from beta users will appear here. If you've tried MakerSafe and want to share your experience, <a href="feedback.html" style="color:var(--indigo); font-weight:600;">get in touch</a>.</p>
+    </div>
+
+    <div class="testimonial-grid fade-up">
+      <!-- REPLACE WITH REAL QUOTE -->
+      <!-- <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Quote from a real beta user goes here."</p>
+        <div>
+          <div class="testimonial-author">Name Surname</div>
+          <div class="testimonial-type">Crochet toy maker · Bristol</div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq" style="background:var(--bg);">
+  <div class="container">
+    <div style="text-align:center;" class="fade-up">
+      <div class="section-label">Common questions</div>
+      <h2 class="section-title">Before you sign up</h2>
+      <p class="section-sub" style="margin:0 auto;">The questions we hear most often from makers who are new to UKCA compliance.</p>
+    </div>
+
+    <div class="faq-list fade-up">
+      <details class="faq-item">
+        <summary class="faq-q">Do I really need this if I only sell a few toys a month?</summary>
+        <div class="faq-a">
+          Yes. The Toys (Safety) Regulations 2011 have no minimum quantity threshold. Placing even a single non-compliant toy on the UK market is an offence. The law applies equally to a sole trader selling at two craft fairs a year and a business selling thousands of units.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">I've been selling without compliance — what do I do now?</summary>
+        <div class="faq-a">
+          MakerSafe helps you get compliant from today. You can't retroactively create evidence for past sales, but you can document your process properly going forward and start building a Technical File for each product. Many makers start here. The important thing is that you act.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can I perform EN71 tests myself, or do I need a laboratory?</summary>
+        <div class="faq-a">
+          It depends on the test. Many EN71-1 physical and mechanical tests — tension, torque, bite force — can be performed by a manufacturer with basic equipment. MakerSafe explains what you need and how to do each one. EN71-3 chemical migration (heavy metals) typically requires an accredited laboratory. MakerSafe flags which tests normally need external lab support.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is a Declaration of Conformity I make myself legally valid?</summary>
+        <div class="faq-a">
+          Yes. TSR 2011 places the responsibility for conformity on the manufacturer — that's you. A DoC is a self-declaration, not a third-party certificate. What matters is that the testing and technical documentation behind it is genuine and retained for 10 years. MakerSafe generates a correctly formatted DoC and helps you build the supporting evidence.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What if Trading Standards inspect my stall or my online listings?</summary>
+        <div class="faq-a">
+          They will ask for your Declaration of Conformity and, in more serious cases, your Technical File. MakerSafe generates both. Keep a digital copy on your phone and consider printing a DoC to bring to markets. A complete, professional Technical File demonstrates you take compliance seriously.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What product types does MakerSafe cover?</summary>
+        <div class="faq-a">
+          Currently: 3D printed toys, crochet and knit toys, soft/sewn toys, and wooden toys. Each type has its own tailored set of EN71 tests, material library categories, and manufacturing sections. Other product types are on the roadmap — sign up to be notified when they're added.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- ── Data security ── -->
 <section id="security" style="background:var(--bg);">
   <div class="container">
@@ -1172,7 +1383,7 @@
         <div class="security-icon">📖</div>
         <div>
           <div class="security-title">Transparent policies</div>
-          <div class="security-desc">Read our full <a href="/privacy" style="color:var(--indigo); font-weight:600;">Privacy Policy</a> and <a href="/terms" style="color:var(--indigo); font-weight:600;">Terms of Service</a>. If you have questions about data handling, email us directly.</div>
+          <div class="security-desc">Read our full <a href="privacy.html" style="color:var(--indigo); font-weight:600;">Privacy Policy</a> and <a href="terms.html" style="color:var(--indigo); font-weight:600;">Terms of Service</a>. If you have questions about data handling, email us directly.</div>
         </div>
       </div>
     </div>
@@ -1189,7 +1400,7 @@
       <form class="email-form" id="cta-form" action="https://formsubmit.co/65f277d37f04e04a77f4430dfb113020" method="POST">
         <input type="hidden" name="_subject" value="New MakerSafe waitlist signup">
         <input type="hidden" name="_autoresponse" value="Thanks for signing up to MakerSafe! We'll send you one email the moment it's ready to use. No spam — just that one notification.">
-        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="thankyou.html">
         <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
         <button type="submit">Notify me →</button>
       </form>
@@ -1211,6 +1422,10 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
         TSR 2011 compliant output
       </div>
+      <div class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Affordable for sole traders — pricing at launch
+      </div>
     </div>
   </div>
 </section>
@@ -1224,8 +1439,8 @@
     </div>
     <span style="font-size:0.8rem; color:var(--text-soft);">© 2026</span>
     <div class="footer-links">
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
       <a href="mailto:ashleyjkell@gmail.com">Contact</a>
     </div>
   </div>
@@ -1239,38 +1454,7 @@
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
-  // Waitlist form submission
-  function handleForm(formId, successId, errorId, noteId) {
-    const form = document.getElementById(formId);
-    if (!form) return;
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button');
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' },
-        });
-        if (res.ok) {
-          form.style.display = 'none';
-          if (noteId) { const n = document.getElementById(noteId); if (n) n.style.display = 'none'; }
-          document.getElementById(successId).style.display = 'block';
-        } else {
-          throw new Error('non-ok');
-        }
-      } catch (_) {
-        btn.disabled = false;
-        btn.textContent = 'Notify me →';
-        document.getElementById(errorId).style.display = 'block';
-      }
-    });
-  }
-
-  handleForm('hero-form', 'hero-success', 'hero-error', 'hero-note');
-  handleForm('cta-form', 'cta-success', 'cta-error', 'cta-note');
+  // Forms submit natively — FormSubmit handles redirect to thankyou.html and sends autoresponse email
 
   // Dark mode toggle
   document.getElementById('theme-toggle').addEventListener('click', function() {

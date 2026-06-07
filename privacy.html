@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — MakerSafe</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d2e;
+      --border: rgba(255,255,255,0.08);
+      --text: #e8e9f0;
+      --muted: #8b8fa8;
+      --purple: #5b5bd6;
+      --purple-light: #7c7ce8;
+    }
+    html.light {
+      --bg: #f9f8f6;
+      --surface: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --text: #1c1c2e;
+      --muted: #6b7280;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .nav-logo {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--purple-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-logo img { width: 24px; height: 24px; border-radius: 6px; }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 2.5rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: var(--text); }
+    .page-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .page-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+    .updated {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+    p:last-child { margin-bottom: 0; }
+    ul {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      padding-left: 1.25rem;
+    }
+    ul li { margin-bottom: 0.4rem; }
+    a { color: var(--purple-light); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--text); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="MakerSafe logo">
+      MakerSafe
+    </a>
+  </nav>
+
+  <div class="container">
+    <a href="index.html" class="back-link">← Back</a>
+
+    <div class="page-header">
+      <div class="page-icon">🔒</div>
+      <div>
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated: May 2026</p>
+      </div>
+    </div>
+
+    <section>
+      <h2>1. Who we are</h2>
+      <p>
+        MakerSafe ("we", "us", "our") is the data controller for personal data collected through this service.
+        We operate MakerSafe, a UKCA compliance management tool for toy manufacturers.
+        For any privacy-related enquiries, contact us at: <a href="mailto:privacy@makersafe.co.uk">privacy@makersafe.co.uk</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. What data we collect</h2>
+      <ul>
+        <li><strong>Account data:</strong> your name, email address, and company name when you register.</li>
+        <li><strong>Product and compliance data:</strong> product specifications, test results, risk assessments, bills of materials, declarations of conformity, and evidence files you enter into the platform.</li>
+        <li><strong>Usage data:</strong> server logs including IP address, browser type, pages visited, and timestamps — retained for up to 90 days.</li>
+        <li><strong>Authentication data:</strong> hashed passwords (never stored in plaintext), session tokens stored in httpOnly cookies.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. How we use your data</h2>
+      <ul>
+        <li>To provide the compliance management service you have signed up for.</li>
+        <li>To generate and store compliance documentation (Declarations of Conformity, Technical Files, product labels).</li>
+        <li>To maintain an audit log of compliance-critical events as required by the Toys (Safety) Regulations 2011.</li>
+        <li>To send password reset emails when you request them.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Lawful basis</h2>
+      <p>
+        We process your data on the basis of <strong>contract performance</strong> (Article 6(1)(b) UK GDPR) — processing is necessary to provide the service you have agreed to use.
+        Audit log retention is also justified under <strong>legal obligation</strong> (Article 6(1)(c)) given the 10-year technical file retention requirement under TSR 2011.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Retention periods</h2>
+      <ul>
+        <li><strong>Compliance documentation (Technical Files, Declarations):</strong> retained for 10 years from the date of last manufacture, as required by Toys (Safety) Regulations 2011, Schedule 5.</li>
+        <li><strong>Account data:</strong> retained for the duration of your account. Deleted within 30 days of a verified erasure request.</li>
+        <li><strong>Audit events:</strong> automatically deleted after 2 years.</li>
+        <li><strong>Session tokens:</strong> expire after 30 days; automatically purged on logout or expiry.</li>
+        <li><strong>Server logs:</strong> retained for up to 90 days.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Your rights</h2>
+      <p>Under UK GDPR you have the right to:</p>
+      <ul>
+        <li><strong>Access</strong> the personal data we hold about you.</li>
+        <li><strong>Rectification</strong> of inaccurate data.</li>
+        <li><strong>Erasure</strong> ("right to be forgotten") — subject to any legal retention obligations.</li>
+        <li><strong>Data portability</strong> — receive your data in a structured, machine-readable format.</li>
+        <li><strong>Object</strong> to processing in certain circumstances.</li>
+        <li><strong>Lodge a complaint</strong> with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</li>
+      </ul>
+      <p style="margin-top:0.75rem;">To exercise any of these rights, contact <a href="mailto:privacy@makersafe.co.uk">privacy@makersafe.co.uk</a>. We will respond within 30 days.</p>
+    </section>
+
+    <section>
+      <h2>7. Data storage and transfers</h2>
+      <p>
+        All data is hosted on servers located in the United Kingdom. We do not transfer personal data outside the UK.
+        We do not sell, rent, or share your personal data with third parties for marketing purposes.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Cookies</h2>
+      <p>
+        We use strictly necessary httpOnly cookies for authentication (access token and refresh token). These cookies are essential for the service to function and cannot be disabled. We do not use advertising or tracking cookies.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Changes to this policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. We will notify you of material changes by email or via an in-app notice. Continued use of the service after the effective date constitutes acceptance of the updated policy.
+      </p>
+    </section>
+  </div>
+
+  <script>
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') document.documentElement.classList.add('light');
+  </script>
+</body>
+</html>

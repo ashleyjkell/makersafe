@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanks for your feedback — MakerSafe</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f1117;
+      --card: #1a1d2e;
+      --border: rgba(255,255,255,0.08);
+      --text: #e8e9f0;
+      --muted: #8b8fa8;
+      --purple: #5b5bd6;
+      --purple-light: #7c7ce8;
+    }
+    html.light {
+      --bg: #f9f8f6;
+      --card: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --text: #1c1c2e;
+      --muted: #6b7280;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+    }
+    .icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, rgba(91,91,214,0.15), rgba(91,91,214,0.3));
+      border: 1px solid rgba(91,91,214,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 28px;
+    }
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+    p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    p:last-of-type { margin-bottom: 0; }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 2rem;
+      color: var(--purple-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: opacity 0.15s;
+    }
+    .back-link:hover { opacity: 0.75; }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--purple-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-logo img { width: 24px; height: 24px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="MakerSafe logo">
+      MakerSafe
+    </a>
+  </nav>
+
+  <div class="card">
+    <div class="icon">💬</div>
+    <h1>Thank you!</h1>
+    <p>
+      Your feedback means a lot. We read every response and use it to make MakerSafe better for makers like you.
+    </p>
+    <p>
+      If you left your email and we have follow-up questions, we'll be in touch.
+    </p>
+    <a href="index.html" class="back-link">← Back to MakerSafe</a>
+  </div>
+
+  <script>
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') document.documentElement.classList.add('light');
+  </script>
+</body>
+</html>
